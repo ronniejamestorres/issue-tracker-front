@@ -44,7 +44,7 @@ const IssuesList: React.FC = () => {
         {displayIssues.length < issues.length && (
           <button
             onClick={nextPage}
-            className="bg-warning hover:bg-success text-white font-bold py-2 px-4 m-4 rounded-full hover:scale-150 "
+            className="bg-success hover:bg-success text-white font-bold py-2 px-4 m-4 rounded-full hover:scale-150 "
           >
             Next
           </button>
