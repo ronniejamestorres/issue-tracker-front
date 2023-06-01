@@ -9,18 +9,20 @@ function Navbar() {
     <nav className="w-full fixed ">
       <div className="navbar bg-white border-b border-black w-full h-24">
         <div className="navbar-start">
-          <img src={logo} alt="logo" className="w-32 ml-6" />
+          <img
+            src={logo}
+            alt="logo"
+            className="w-32 ml-6 cursor-pointer"
+            onClick={() => navigate("/")}
+          />
         </div>
-        <div className="navbar-center hidden lg:flex">
+        <div className="navbar-center hidden lg:flex text-black">
           <ul className="menu menu-horizontal px-1">
-            <li>
-              <a>Item 1</a>
-            </li>
             <li tabIndex={0}>
               <a>
-                Parent
+                Company
                 <svg
-                  className="fill-current"
+                  className="fill-current "
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
                   height="20"
@@ -29,25 +31,44 @@ function Navbar() {
                   <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
                 </svg>
               </a>
-              <ul className="p-2">
+              <ul className="p-2 bg-white border border-black">
                 <li>
-                  <a>Submenu 1</a>
+                  <a className="">Why we're here ?</a>
                 </li>
                 <li>
-                  <a>Submenu 2</a>
+                  <a className="">Meet the team</a>
                 </li>
               </ul>
             </li>
-            <li>
-              <a>Item 3</a>
+            <li tabIndex={0}>
+              <a>
+                Contact us
+                <svg
+                  className="fill-current "
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+                </svg>
+              </a>
+              <ul className="p-2 bg-white border border-black">
+                <li>
+                  <a className="">Location</a>
+                </li>
+              </ul>
             </li>
           </ul>
         </div>
 
         <div className="navbar-end">
-          <a className="border border-black text-white bg-black mx-6 px-6 py-2 rounded-2xl hover:scale-110 ">
-            Sign in
-          </a>
+          <button
+            className="border border-black text-white bg-black mx-6 px-6 py-2 rounded-2xl hover:scale-110"
+            onClick={() => navigate("/Login")}
+          >
+            Log in
+          </button>
         </div>
         <div className="dropdown dropdown-bottom dropdown-end">
           <label
