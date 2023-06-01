@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 interface Issue {
   status: string;
-  id: number;
+  _id: string;
   title: string;
   description: string;
   // include other issue properties as required
@@ -33,14 +33,15 @@ const IssuesList: React.FC = () => {
   };
 
   return (
-    <div className="flex justify-center border border-warning ">
+    <div className="flex justify-center border border-warning pt-20">
       <div className="border p-10">
         {displayIssues.map((issue: Issue) => (
-          <div key={issue.id}>
+          <div key={issue._id}>
             <h2 className="font-bold border p-4">{issue.title}</h2>
             <p>{issue.description}</p>
           </div>
         ))}
+
         {displayIssues.length < issues.length && (
           <button
             onClick={nextPage}
@@ -50,39 +51,8 @@ const IssuesList: React.FC = () => {
           </button>
         )}
       </div>
-      <div className="dropdown">
-        <label tabIndex={0} className="btn m-1">
-          Click
-        </label>
-        <div
-          tabIndex={0}
-          className="dropdown-content card card-compact w-64 p-2 shadow bg-primary text-primary-content"
-        >
-          <div className="card-body">
-            <h3 className="card-title">Card title!</h3>
-            <p>you can use any element as a dropdown.</p>
-          </div>
-        </div>
-      </div>
     </div>
   );
 };
 
 export default IssuesList;
-
-//<div className="flex justify-center">
-//  {displayIssues.map((issue: Issue) => (
-//    <div key={issue.id}>
-//      <h2>{issue.title}</h2>
-//      <p>{issue.description}</p>
-//    </div>
-//  ))}
-//  {displayIssues.length < issues.length && (
-//    <button
-//      onClick={nextPage}
-//      className="bg-warning hover:bg-success text-white font-bold py-2 px-4 m-4 rounded-full hover:scale-150"
-//    >
-//      Next
-//    </button>
-//  )}
-//</div>;
