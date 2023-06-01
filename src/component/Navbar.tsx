@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import logo from "../images/IssueTracker-logo.svg";
 import { GiHamburgerMenu } from "react-icons/gi";
+import Button from "./Button"; // Make sure to import the Button component
 
 function Navbar() {
   const navigate = useNavigate();
@@ -63,12 +64,7 @@ function Navbar() {
         </div>
 
         <div className="navbar-end">
-          <button
-            className="border border-black text-white bg-black mx-6 px-6 py-2 rounded-2xl hover:scale-110"
-            onClick={() => navigate("/Login")}
-          >
-            Log in
-          </button>
+          <Button onClick={() => navigate("/Login")} text="Log in" />
         </div>
         <div className="dropdown dropdown-bottom dropdown-end">
           <label
@@ -79,35 +75,14 @@ function Navbar() {
           </label>
           <ul
             tabIndex={0}
-            className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+            className="dropdown-content dropdown dropdown-bottom dropdown-end menu p-2 shadow border border-black bg-white text-black rounded-box w-52"
           >
             <li>
-              <a>Item 1</a>
+              <a>Company</a>
             </li>
-            <li tabIndex={0}>
-              <a className="justify-between">
-                Parent
-                <svg
-                  className="fill-current"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-                </svg>
-              </a>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </li>
+
             <li>
-              <a>Item 3</a>
+              <a>Contact us</a>
             </li>
           </ul>
         </div>
