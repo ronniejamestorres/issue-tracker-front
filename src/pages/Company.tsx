@@ -2,16 +2,16 @@ import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "../component/Navbar";
 import Footer from "../component/Footer";
-import LandingContent from "../component/LandingContent";
+import CompanyContent from "../component/CompanyContent";
 
-function LandingPage() {
+function Company() {
   return (
     <div>
       <Navbar />
-      <LandingContent />
+      <CompanyContent />
       <Footer />
     </div>
   );
 }
 
-export default LandingPage;
+export default Company;

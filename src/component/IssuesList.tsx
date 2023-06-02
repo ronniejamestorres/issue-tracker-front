@@ -33,7 +33,7 @@ const IssuesList: React.FC = () => {
   };
 
   return (
-    <div className="flex justify-center border border-warning pt-20 bg-white">
+    <div className="h-screen flex justify-center border border-warning pt-20 bg-white">
       <div className="border p-10">
         {displayIssues.map((issue: Issue) => (
           <div key={issue._id}>
