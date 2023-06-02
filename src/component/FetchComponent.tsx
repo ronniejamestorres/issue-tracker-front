@@ -13,13 +13,6 @@ const FetchComponent: React.FC = () => {
   }, [countdownValue]);
   return (
     <div className="bg-black">
-      <div>
-        <span className="countdown font-mono text-6xl">
-          <span
-            style={{ "--value": countdownValue } as React.CSSProperties}
-          ></span>
-        </span>
-      </div>
       <div className="form-control">
         <label className="label cursor-pointer">
           <span className="label-text">Remember me</span>
