@@ -50,7 +50,10 @@ function Navbar() {
           </ul>
         </div>
 
-        <div className="navbar-end">
+        <div
+          className="navbar-end"
+          style={{ fontFamily: "Abril Fatface", fontStyle: "cursive" }}
+        >
           <ButtonBlack onClick={() => navigate("/Login")} text="Log in" />
         </div>
         <div className="dropdown dropdown-bottom dropdown-end">

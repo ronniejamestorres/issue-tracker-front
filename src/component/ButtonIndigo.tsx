@@ -9,7 +9,7 @@ const ButtonBlack: React.FC<ButtonProps> = ({ onClick, text }) => {
   // Use the ButtonProps in your functional component
   return (
     <button
-      className="w-screen  text-white bg-primary mx-6 px-6 py-2 rounded-2xl hover:scale-105"
+      className="w-screen  text-white cursor-pointer bg-indigo-500 hover:bg-indigo-400 focus:bg-indigo-400  mx-6 px-6 py-2 rounded-2xl hover:scale-105"
       onClick={onClick}
     >
       {text}

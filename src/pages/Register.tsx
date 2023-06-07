@@ -38,34 +38,35 @@ const Register: React.FC = () => {
         <h2 className="text-4xl font-abril ">Register</h2>
         <input
           type="text"
-          className="w-full p-3 mb-4 border border-primary rounded-2xl shadow-sm bg-white "
+          className="w-full p-3 mb-4 border border-indigo-500  rounded-2xl shadow-sm bg-white "
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
         <input
           type="email"
-          className="w-full p-3 mb-4 border border-primary rounded-2xl shadow-sm bg-white "
+          className="w-full p-3 mb-4 border border-indigo-500  rounded-2xl shadow-sm bg-white "
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
           type="password"
-          className="w-full p-3 mb-4 border border-primary rounded-2xl shadow-sm bg-white "
+          className="w-full p-3 mb-4 border border-indigo-500   rounded-2xl shadow-sm bg-white "
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
         <input
           type="password"
-          className="w-full p-3 mb-4 border border-primary rounded-2xl shadow-sm bg-white "
+          className="w-full p-3 mb-4 border border-indigo-500   rounded-2xl shadow-sm bg-white "
           placeholder="Confirm Password"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
         />
         <button
-          className="w-full p-3 text-white bg-primary rounded-2xl hover:bg-blue-700"
+          style={{ fontFamily: "Abril Fatface", fontStyle: "cursive" }}
+          className="w-full p-3  rounded-2xl bg-indigo-500 hover:bg-indigo-400 focus:bg-indigo-400 text-white "
           onClick={registerUser}
         >
           Register
