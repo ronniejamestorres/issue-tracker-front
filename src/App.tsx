@@ -5,6 +5,8 @@ import LandingPage from "./pages/LandingPage";
 import ShowAll from "./pages/ShowAll";
 import Company from "./pages/Company";
 import Login from "./pages/Login";
+import AddIssue from "./pages/AddIssue";
+import TheTeam from "./pages/TheTeam";
 
 function App() {
   return (
@@ -15,7 +17,9 @@ function App() {
         <Route path="/Register" element={<Register />}></Route>
         <Route path="/LandingPage" element={<LandingPage />}></Route>
         <Route path="/Company" element={<Company />}></Route>
+        <Route path="/TheTeam" element={<TheTeam />}></Route>
         <Route path="/ShowAll" element={<ShowAll />}></Route>
+        <Route path="/AddIssue" element={<AddIssue />}></Route>
       </Routes>
     </Router>
   );
