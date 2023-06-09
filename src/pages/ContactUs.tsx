@@ -2,16 +2,16 @@ import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "../component/Navbar";
 import Footer from "../component/Footer";
-import AddIssueContent from "../component/AddIssueContent";
+import ContactUsContent from "../component/ContactUsContent";
 
-function AddIssue() {
+function ContactUs() {
   return (
     <div>
       <Navbar />
-      <AddIssueContent />
+      <ContactUsContent />
       <Footer />
     </div>
   );
 }
 
-export default AddIssue;
+export default ContactUs;

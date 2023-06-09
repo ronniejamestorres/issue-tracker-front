@@ -32,12 +32,14 @@ function Navbar() {
                   </a>
                 </li>
                 <li>
-                  <a className="">Meet the team</a>
+                  <a className="" onClick={() => navigate("/TheTeam")}>
+                    Meet the team
+                  </a>
                 </li>
               </ul>
             </li>
             <li tabIndex={0}>
-              <a>
+              <a className="" onClick={() => navigate("/ContactUs")}>
                 Contact us
                 <IoIosArrowDown />
               </a>

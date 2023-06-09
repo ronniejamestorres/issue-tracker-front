@@ -2,16 +2,16 @@ import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "../component/Navbar";
 import Footer from "../component/Footer";
-import AddIssueContent from "../component/AddIssueContent";
+import TheTeamContent from "../component/TheTeamContent";
 
-function AddIssue() {
+function TheTeam() {
   return (
     <div>
       <Navbar />
-      <AddIssueContent />
+      <TheTeamContent />
       <Footer />
     </div>
   );
 }
 
-export default AddIssue;
+export default TheTeam;
