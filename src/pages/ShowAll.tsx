@@ -1,13 +1,13 @@
 import React from "react";
-import IssuesList from "../component/IssuesList";
 import Navbar from "../component/Navbar";
 import Footer from "../component/Footer";
+import IssuesTracker from "../component/IssuesTracker";
 
 function ShowAll() {
   return (
     <>
       <Navbar />
-      <IssuesList />
+      <IssuesTracker />
       <Footer />
     </>
   );
