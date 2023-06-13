@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ButtonIndigo from "./ButtonIndigo";
 import SearchBar from "./SearchBar";
+import AuthContext from "../context/AuthContext"; // Import AuthContext
 
 interface Comment {
   _id: string;
@@ -21,11 +22,18 @@ interface Issue {
 }
 
 const IssuesList: React.FC = () => {
+  const authContext = useContext(AuthContext); // Access authContext
+
   const navigate = useNavigate();
   const [issues, setIssues] = useState<Issue[]>([]);
   const [search, setSearch] = useState("");
   const [filteredIssues, setFilteredIssues] = useState<Issue[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
+
+  // Get the username from local storage
+  const [username, setUsername] = useState(
+    localStorage.getItem("username") || ""
+  );
 
   const issuesPerPage = 5;
 
@@ -38,6 +46,16 @@ const IssuesList: React.FC = () => {
       })
       .catch((err) => console.error(err));
   }, []);
+
+  useEffect(() => {
+    // If the user is logged in, get the username from local storage
+    // Else, clear the username
+    if (authContext?.isLoggedIn) {
+      setUsername(localStorage.getItem("username") || "");
+    } else {
+      setUsername("");
+    }
+  }, [authContext?.isLoggedIn]); // Listen to changes in isLoggedIn
 
   useEffect(() => {
     setFilteredIssues(
@@ -58,9 +76,15 @@ const IssuesList: React.FC = () => {
 
   return (
     <div className="h-fit border pt-20 bg-white">
-      <div className="border pt-10">
+      <div className="border pt-10 m-4">
+        <h1
+          className="text-xl text-black mb-4"
+          style={{ fontFamily: "Abril Fatface", fontStyle: "cursive" }}
+        >
+          Welcome {username}!
+        </h1>{" "}
+        {/* Display the username here */}
         <SearchBar search={search} setSearch={setSearch} />
-
         {displayIssues.map((issue: Issue) => (
           <div
             key={issue._id}

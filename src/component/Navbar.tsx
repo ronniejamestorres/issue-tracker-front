@@ -3,9 +3,15 @@ import logo from "../images/IssueTracker-logo.svg";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoIosArrowDown } from "react-icons/io";
 import ButtonBlack from "./ButtonBlack"; // Make sure to import the Button component
+import AuthContext from "../context/AuthContext";
+import { useContext } from "react";
 
 function Navbar() {
   const navigate = useNavigate();
+  const authContext = useContext(AuthContext);
+
+  const isLoggedIn = authContext ? authContext.isLoggedIn : false;
+  const setIsLoggedIn = authContext ? authContext.setIsLoggedIn : () => {};
 
   return (
     <nav className="w-full fixed ">
@@ -56,7 +62,19 @@ function Navbar() {
           className="navbar-end"
           style={{ fontFamily: "Abril Fatface", fontStyle: "cursive" }}
         >
-          <ButtonBlack onClick={() => navigate("/Login")} text="Log in" />
+          {isLoggedIn ? (
+            <ButtonBlack
+              onClick={() => {
+                localStorage.removeItem("username");
+                localStorage.removeItem("token"); // Remove token from local storage
+                setIsLoggedIn(false);
+                navigate("/Login");
+              }}
+              text="Log out"
+            />
+          ) : (
+            <ButtonBlack onClick={() => navigate("/Login")} text="Log in" />
+          )}
         </div>
         <div className="dropdown dropdown-bottom dropdown-end">
           <label

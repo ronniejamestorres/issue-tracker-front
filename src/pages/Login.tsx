@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import axios, { AxiosError } from "axios";
 import { useNavigate } from "react-router-dom";
-
+import AuthContext from "../context/AuthContext";
+import login from "../images/login.svg";
+import ButtonRegister from "../component/ButtonRegister";
 interface LoginResponse {
   message: string;
   token?: string;
@@ -12,6 +14,7 @@ interface ErrorResponse {
 }
 
 const Login: React.FC = () => {
+  const authContext = useContext(AuthContext);
   const navigate = useNavigate();
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -35,7 +38,11 @@ const Login: React.FC = () => {
       // Handle the token or perform any desired actions
       console.log("Message:", message);
       console.log("Token:", token);
-      navigate("/ShowAll"); // navigate to home after successful login
+      if (token && authContext) {
+        authContext.setIsLoggedIn(true);
+        localStorage.setItem("username", username); // Save username in local storage
+        navigate("/ShowAll");
+      }
     } catch (error) {
       // Handle any errors that occurred during the request
       const axiosError = error as AxiosError;
@@ -49,26 +56,61 @@ const Login: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Username:
-        <input
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-      </label>
-      <label>
-        Password:
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </label>
-      {errorMessage && <p>{errorMessage}</p>}
-      <button type="submit">Sign in</button>
-    </form>
+    <>
+      <div className="container mx-0 flex justify-center items-center h-screen bg-white">
+        <div className="w-full lg:w-1/2 p-10 bg-white lg:rounded-lg xl:rounded-lg lg:shadow-lg">
+          <div className="relative w-330 h-285 right-30 bottom-443">
+            <img src={login} alt="login" />
+          </div>
+          <div className="flex justify-center items-center">
+            <h1
+              style={{ fontFamily: "Abril Fatface", fontStyle: "cursive" }}
+              className="text-4xl text-black m-4"
+            >
+              Welcome back!
+            </h1>
+          </div>
+
+          <form onSubmit={handleSubmit}>
+            <label>
+              <input
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                placeholder="username"
+                className="w-full px-4 py-3 rounded-2xl text-gray-950 bg-white mt-2 border-2 shadow-md  border-indigo-500  focus:bg-white focus:outline-none "
+              />
+            </label>
+            <label>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="password"
+                className="w-full px-4 py-3 rounded-2xl text-gray-950 bg-white mt-2 border-2 shadow-md  border-indigo-500  focus:bg-white focus:outline-none"
+              />
+            </label>
+            {errorMessage && <p>{errorMessage}</p>}
+            <button
+              style={{ fontFamily: "Abril Fatface", fontStyle: "cursive" }}
+              type="submit"
+              className="w-full block mt-14 cursor-pointer bg-indigo-500 hover:bg-indigo-400 focus:bg-indigo-400 text-white rounded-2xl px-4 py-3"
+            >
+              Sign in
+            </button>
+          </form>
+          <div
+            className="justify-center flex pt-8 lg:pt-40"
+            style={{ fontFamily: "Abril Fatface", fontStyle: "cursive" }}
+          >
+            <ButtonRegister
+              onClick={() => navigate("/Register")}
+              text="New ? Create an account"
+            />
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 

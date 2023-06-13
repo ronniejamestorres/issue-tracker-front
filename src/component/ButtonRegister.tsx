@@ -8,7 +8,7 @@ type ButtonProps = {
 const ButtonRegister: React.FC<ButtonProps> = ({ onClick, text }) => {
   // Use the ButtonProps in your functional component
   return (
-    <button className=" text-black border  hover:scale-110" onClick={onClick}>
+    <button className=" text-black   hover:scale-110" onClick={onClick}>
       {text}
     </button>
   );
