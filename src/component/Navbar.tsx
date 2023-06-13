@@ -88,11 +88,17 @@ function Navbar() {
             className="dropdown-content dropdown dropdown-bottom dropdown-end menu p-2 shadow border border-black bg-white text-black rounded-box w-52"
           >
             <li>
-              <a>Company</a>
+              <a onClick={() => navigate("/company")}>Company</a>
+            </li>
+            <li>
+              <a onClick={() => navigate("/TheTeam")}>Meet the team</a>
             </li>
 
             <li>
-              <a>Contact us</a>
+              <a onClick={() => navigate("/ContactUs")}>Contact us</a>
+            </li>
+            <li>
+              <a onClick={() => navigate("/Location")}>Location</a>
             </li>
           </ul>
         </div>

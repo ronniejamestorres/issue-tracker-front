@@ -1,8 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import ButtonIndigo from "./ButtonIndigo";
 import SearchBar from "./SearchBar";
 import AuthContext from "../context/AuthContext"; // Import AuthContext
+
+import { GrNext } from "react-icons/gr";
+import { GrPrevious } from "react-icons/gr";
+import PaginationButtons from "./PaginationButton";
 
 interface Comment {
   _id: string;
@@ -41,10 +44,8 @@ const IssuesList: React.FC = () => {
     fetch("https://issue-tracker-app-n4roq.ondigitalocean.app/all/issue")
       .then((response) => response.json())
       .then((data) => {
-        let shuffledData = [...data]; // create a copy
-        shuffledData.sort(() => Math.random() - 0.5); // shuffle the copy
-        setIssues(shuffledData);
-        setFilteredIssues(shuffledData);
+        setIssues(data);
+        setFilteredIssues(data);
       })
       .catch((err) => console.error(err));
   }, []);
@@ -76,6 +77,12 @@ const IssuesList: React.FC = () => {
     setCurrentPage(currentPage + 1);
   };
 
+  const previousPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
   return (
     <div className="h-fit border pt-20 bg-white">
       <div className="border pt-10 m-4">
@@ -83,7 +90,7 @@ const IssuesList: React.FC = () => {
           className="text-xl text-black mb-4"
           style={{ fontFamily: "Abril Fatface", fontStyle: "cursive" }}
         >
-          Welcome {username}!
+          Welcome <span className="text-indigo-500">{username}</span> !
         </h1>{" "}
         {/* Display the username here */}
         <SearchBar search={search} setSearch={setSearch} />
@@ -105,12 +112,12 @@ const IssuesList: React.FC = () => {
             ))}
           </div>
         ))}
-        <div
-          className="justify-center flex pt-8 lg:pt-40"
-          style={{ fontFamily: "Abril Fatface", fontStyle: "cursive" }}
-        >
-          <ButtonIndigo onClick={nextPage} text="Next" />
-        </div>
+        <PaginationButtons
+          nextPage={nextPage}
+          previousPage={previousPage}
+          canGoBack={currentPage > 1}
+          canGoForward={filteredIssues.length / issuesPerPage > currentPage}
+        />
       </div>
     </div>
   );
