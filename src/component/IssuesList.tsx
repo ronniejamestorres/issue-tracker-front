@@ -1,10 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import AuthContext from "../context/AuthContext"; // Import AuthContext
-
-import { GrNext } from "react-icons/gr";
-import { GrPrevious } from "react-icons/gr";
 import PaginationButtons from "./PaginationButton";
 
 interface Comment {
@@ -27,7 +24,7 @@ interface Issue {
 const IssuesList: React.FC = () => {
   const authContext = useContext(AuthContext); // Access authContext
 
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
   const [issues, setIssues] = useState<Issue[]>([]);
   const [search, setSearch] = useState("");
   const [filteredIssues, setFilteredIssues] = useState<Issue[]>([]);
@@ -44,8 +41,10 @@ const IssuesList: React.FC = () => {
     fetch("https://issue-tracker-app-n4roq.ondigitalocean.app/all/issue")
       .then((response) => response.json())
       .then((data) => {
-        setIssues(data);
-        setFilteredIssues(data);
+        let shuffledData = [...data]; // create a copy
+        shuffledData.sort(() => Math.random() - 0.5); // shuffle the copy
+        setIssues(shuffledData);
+        setFilteredIssues(shuffledData);
       })
       .catch((err) => console.error(err));
   }, []);
