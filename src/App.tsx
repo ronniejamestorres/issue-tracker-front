@@ -11,7 +11,6 @@ import AddIssue from "./pages/AddIssue";
 import TheTeam from "./pages/TheTeam";
 import ContactUs from "./pages/ContactUs";
 import CommentsPage from "./pages/CommentsPage"; // import CommentsPage at the top of the file
-import LoginTwo from "./pages/LoginTwo";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
@@ -22,7 +21,6 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage />}></Route>
           <Route path="/login" element={<Login />}></Route>
-          <Route path="/logintwo" element={<LoginTwo />}></Route>
           <Route path="/Register" element={<Register />}></Route>
           <Route path="/LandingPage" element={<LandingPage />}></Route>
           <Route path="/Company" element={<Company />}></Route>

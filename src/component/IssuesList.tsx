@@ -41,8 +41,10 @@ const IssuesList: React.FC = () => {
     fetch("https://issue-tracker-app-n4roq.ondigitalocean.app/all/issue")
       .then((response) => response.json())
       .then((data) => {
-        setIssues(data);
-        setFilteredIssues(data);
+        let shuffledData = [...data]; // create a copy
+        shuffledData.sort(() => Math.random() - 0.5); // shuffle the copy
+        setIssues(shuffledData);
+        setFilteredIssues(shuffledData);
       })
       .catch((err) => console.error(err));
   }, []);
