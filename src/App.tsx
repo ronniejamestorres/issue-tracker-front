@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import AddIssue from "./pages/AddIssue";
 import TheTeam from "./pages/TheTeam";
 import ContactUs from "./pages/ContactUs";
+import CommentsPage from "./pages/CommentsPage"; // import CommentsPage at the top of the file
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
         <Route path="/ContactUs" element={<ContactUs />}></Route>
         <Route path="/ShowAll" element={<ShowAll />}></Route>
         <Route path="/AddIssue" element={<AddIssue />}></Route>
+
+        {/* Add this line */}
+        <Route path="/comments/:id" element={<CommentsPage />}></Route>
       </Routes>
     </Router>
   );

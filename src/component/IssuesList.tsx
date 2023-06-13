@@ -1,16 +1,27 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
+import ButtonIndigo from "./ButtonIndigo";
+
+interface Comment {
+  _id: string;
+  comment: string;
+  createdBy: string;
+  createdDate: string;
+}
 
 interface Issue {
+  createdBy: string;
   status: string;
   _id: string;
   title: string;
   description: string;
-  labels: string;
+  labels: string[];
+  comments: Comment[];
   // include other issue properties as required
 }
 
 const IssuesList: React.FC = () => {
+  const navigate = useNavigate();
   const [issues, setIssues] = useState<Issue[]>([]);
   const [page, setPage] = useState(1);
   const [displayIssues, setDisplayIssues] = useState<Issue[]>([]);
@@ -18,10 +29,9 @@ const IssuesList: React.FC = () => {
   const issuesPerPage = 5; // Number of issues to display per page
 
   useEffect(() => {
-    axios
-      .get("https://issue-tracker-app-n4roq.ondigitalocean.app/all/issue")
-      .then((response) => {
-        const data = response.data;
+    fetch("https://issue-tracker-app-n4roq.ondigitalocean.app/all/issue")
+      .then((response) => response.json())
+      .then((data) => {
         setIssues(data);
         setDisplayIssues(data.slice(0, issuesPerPage));
       })
@@ -36,36 +46,32 @@ const IssuesList: React.FC = () => {
   };
 
   return (
-    <div className="mr-[750px] pt-6">
-      <header className="pb-6">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1
-            className="text-2xl font-bold text-gray-900"
-            style={{ fontFamily: "Abril Fatface", fontStyle: "cursive" }}
+    <div className="h-fit  border  pt-20 bg-white">
+      <div className="border pt-10">
+        {displayIssues.map((issue: Issue) => (
+          <div
+            key={issue._id}
+            className="border border-black rounded-2xl p-4 mb-2 min-h-60"
           >
-            Issues List
-          </h1>
-        </div>
-      </header>
-      <div>
-        <div className="ml-6 p-2">
-          {displayIssues.map((issue: Issue) => (
-            <div key={issue._id}>
-              <h2 className="w-[750px] h-[109px] border-2 mb-3 border-blue-400 rounded-2xl p-8">
-                {issue.title}
-                <p>{issue.labels}</p>
-              </h2>
-            </div>
-          ))}
+            <Link to={`/comments/${issue._id}`}>
+              <h2 className="font-bold text-black h-10 ">{issue.title}</h2>
+            </Link>
+            <p className="font-light text-xs	">ID : {issue._id}</p>
+            <p className="font-light text-xs	">Status : {issue.status}</p>
+            <p className="font-light text-xs	">Created by : {issue.createdBy}</p>
+            {issue.labels.map((label, index) => (
+              <p key={index} className="font-light text-xs	">
+                Label : {label}
+              </p>
+            ))}
+          </div>
+        ))}
 
-          {displayIssues.length < issues.length && (
-            <button
-              onClick={nextPage}
-              className="bg-success  text-white font-bold py-2 px-4 m-4 rounded-full"
-            >
-              Next Page
-            </button>
-          )}
+        <div
+          className="justify-center flex pt-8 lg:pt-40"
+          style={{ fontFamily: "Abril Fatface", fontStyle: "cursive" }}
+        >
+          <ButtonIndigo onClick={nextPage} text="Next" />
         </div>
       </div>
     </div>
