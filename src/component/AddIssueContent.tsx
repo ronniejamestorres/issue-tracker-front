@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import ButtonIndigo from "./ButtonIndigo";
 import addissueimage from "../images/addissueimage.svg";
+import "../App.css";
 
 const AddIssueContent: React.FC = () => {
   const navigate = useNavigate();

@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import ButtonIndigo from "./ButtonIndigo";
 import landingimage from "../images/landingimage.svg";
+import "../App.css";
 
 const LandingContent: React.FC = () => {
   const navigate = useNavigate();

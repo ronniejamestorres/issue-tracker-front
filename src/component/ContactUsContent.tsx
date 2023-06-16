@@ -1,5 +1,6 @@
 import React from "react";
 import contactusimage from "../images/contactusimage.svg";
+import "../App.css";
 
 const ContactUsContent: React.FC = () => {
   return (

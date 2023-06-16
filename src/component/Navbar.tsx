@@ -5,6 +5,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import ButtonBlack from "./ButtonBlack"; // Make sure to import the Button component
 import AuthContext from "../context/AuthContext";
 import { useContext } from "react";
+import "../App.css";
 
 function Navbar() {
   const navigate = useNavigate();

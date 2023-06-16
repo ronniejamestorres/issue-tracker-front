@@ -1,5 +1,5 @@
 import React from "react";
-
+import "../App.css";
 import companyimage from "../images/companyimage.svg";
 
 const CompanyContent: React.FC = () => {

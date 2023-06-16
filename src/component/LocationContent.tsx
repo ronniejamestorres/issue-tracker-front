@@ -1,5 +1,6 @@
 import React from "react";
 import mapimage from "../images/map.svg";
+import "../App.css";
 
 const LocationContent: React.FC = () => {
   return (

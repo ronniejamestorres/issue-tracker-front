@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import AuthContext from "../context/AuthContext"; // Import AuthContext
 import PaginationButtons from "./PaginationButton";
+import "../App.css";
 
 interface Comment {
   _id: string;

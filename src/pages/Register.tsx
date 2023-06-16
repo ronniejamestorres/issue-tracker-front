@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios, { AxiosError } from "axios";
 import issueimage from "../images/Rectangle16.svg";
 import { useNavigate } from "react-router-dom";
+import "../App.css";
 
 interface ErrorData {
   message: string;

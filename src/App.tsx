@@ -10,8 +10,8 @@ import Login from "./pages/Login";
 import AddIssue from "./pages/AddIssue";
 import TheTeam from "./pages/TheTeam";
 import ContactUs from "./pages/ContactUs";
-import CommentsPage from "./pages/CommentsPage"; // import CommentsPage at the top of the file
-import Location from "./pages/Location"; // import CommentsPage at the top of the file
+import CommentsPage from "./pages/CommentsPage";
+import Location from "./pages/Location";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);

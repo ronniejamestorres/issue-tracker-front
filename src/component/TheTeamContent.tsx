@@ -2,6 +2,7 @@ import React from "react";
 import profile1 from "../images/profile1.svg";
 import profile2 from "../images/profile2.svg";
 import profile3 from "../images/profile3.svg";
+import "../App.css";
 
 const TheTeamContent: React.FC = () => {
   return (

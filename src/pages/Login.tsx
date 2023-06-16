@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 import login from "../images/login.svg";
 import ButtonRegister from "../component/ButtonRegister";
+import "../App.css";
 interface LoginResponse {
   message: string;
   token?: string;
