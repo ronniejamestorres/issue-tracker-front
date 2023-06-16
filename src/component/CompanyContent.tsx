@@ -5,8 +5,13 @@ import companyimage from "../images/companyimage.svg";
 const CompanyContent: React.FC = () => {
   return (
     <div className="lg:h-screen bg-white pt-28 lg:pt-10 p-4 grid grid-cols-1 lg:grid-cols-2 ">
-      <div className=" border pt-8 lg:pt-40">
-        <p className="text-2xl pb-4 text-black">Company</p>
+      <div className="  pt-8 lg:pt-40">
+        <p
+          className="text-2xl pb-4 text-black"
+          style={{ fontFamily: "Abril Fatface", fontStyle: "cursive" }}
+        >
+          Company
+        </p>
         <p className="text-xl pb-4 text-black">Why we're here ?</p>
         <p className="text-black pt-8">
           The future of work doesn't work without the right tools.
@@ -26,7 +31,7 @@ const CompanyContent: React.FC = () => {
           others, which compelled us to continue to work on it to this day.
         </p>
       </div>
-      <div className="pt-8 lg:pt-0 border items-center flex">
+      <div className="pt-8 lg:pt-0  items-center flex">
         <img src={companyimage} alt="pets" className="" />
       </div>
     </div>

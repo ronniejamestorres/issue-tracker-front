@@ -3,15 +3,15 @@ import contactusimage from "../images/contactusimage.svg";
 
 const ContactUsContent: React.FC = () => {
   return (
-    <div className="h-screen bg-white pt-28 lg:pt-10 p-4 grid grid-cols-1 lg:grid-cols-2 ">
-      <div className=" border pt-8 lg:pt-40">
+    <div className="h-fit bg-white pt-28 lg:pt-10 p-4 grid grid-cols-1 lg:grid-cols-2 ">
+      <div className="  pt-8 lg:pt-40">
         <p
           className="text-2xl pb-4 text-black"
           style={{ fontFamily: "Abril Fatface", fontStyle: "cursive" }}
         >
           Contact us
         </p>
-        <p className="text-black pt-4 border h-64 items-center flex">
+        <p className="text-black pt-4  h-64 items-center flex">
           Questions, feedback, problems — we're here for it all.
         </p>
         <button
@@ -21,8 +21,8 @@ const ContactUsContent: React.FC = () => {
           Send email
         </button>
       </div>
-      <div className="pt-8 lg:pt-0 border items-center flex">
-        <img src={contactusimage} alt="pets" className="" />
+      <div className="pt-8  lg:pt-0  items-center flex">
+        <img src={contactusimage} alt="pets" className="pt-8 pb-8" />
       </div>
     </div>
   );

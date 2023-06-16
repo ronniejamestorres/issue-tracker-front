@@ -11,6 +11,7 @@ import AddIssue from "./pages/AddIssue";
 import TheTeam from "./pages/TheTeam";
 import ContactUs from "./pages/ContactUs";
 import CommentsPage from "./pages/CommentsPage"; // import CommentsPage at the top of the file
+import Location from "./pages/Location"; // import CommentsPage at the top of the file
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
@@ -26,6 +27,7 @@ function App() {
           <Route path="/Company" element={<Company />}></Route>
           <Route path="/TheTeam" element={<TheTeam />}></Route>
           <Route path="/ContactUs" element={<ContactUs />}></Route>
+          <Route path="/Location" element={<Location />}></Route>
           <Route path="/ShowAll" element={<ShowAll />}></Route>
           <Route path="/AddIssue" element={<AddIssue />}></Route>
           <Route path="/comments/:id" element={<CommentsPage />}></Route>

@@ -83,8 +83,8 @@ const IssuesList: React.FC = () => {
   };
 
   return (
-    <div className="h-fit border pt-20 bg-white">
-      <div className="border pt-10 m-4">
+    <div className="h-fit pt-20 bg-white">
+      <div className=" pt-10 ml-4 mr-4 pb-4">
         <h1
           className="text-xl text-black mb-4"
           style={{ fontFamily: "Abril Fatface", fontStyle: "cursive" }}

@@ -51,7 +51,9 @@ function Navbar() {
               </a>
               <ul className="p-2 bg-white border border-black">
                 <li>
-                  <a className="">Location</a>
+                  <a className="" onClick={() => navigate("/Location")}>
+                    Location
+                  </a>
                 </li>
               </ul>
             </li>

@@ -7,8 +7,8 @@ const LandingContent: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="h-screen bg-white pt-28 lg:pt-10 p-4 grid grid-cols-1 lg:grid-cols-2 ">
-      <div className=" col-span-1 lg:col-span-1  border pt-8 lg:pt-40">
+    <div className="h-fit bg-white pt-28 lg:pt-10 p-4 grid grid-cols-1 lg:grid-cols-2 ">
+      <div className=" col-span-1 lg:col-span-1 pt-8 lg:pt-40">
         <p
           style={{ fontFamily: "Abril Fatface", fontStyle: "cursive" }}
           className="text-2xl pb-4 text-black"
@@ -36,7 +36,7 @@ const LandingContent: React.FC = () => {
         </div>
       </div>
 
-      <div className=" col-span-1 lg:col-span-1 pt-8 lg:pt-0 border items-center flex">
+      <div className=" col-span-1 lg:col-span-1 pt-8 lg:pt-0 items-center flex">
         <img src={landingimage} alt="pets" className="" />
       </div>
     </div>
