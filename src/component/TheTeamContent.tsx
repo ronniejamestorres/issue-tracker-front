@@ -1,12 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
 import profile1 from "../images/profile1.svg";
 import profile2 from "../images/profile2.svg";
 import profile3 from "../images/profile3.svg";
 
 const TheTeamContent: React.FC = () => {
-  const navigate = useNavigate();
-
   return (
     <div className="lg:h-screen bg-white pt-28 lg:pt-10 p-4 grid grid-cols-1 lg:grid-cols-3 ">
       <p className="text-2xl pb-4 text-black lg:col-span-3 col-span-1">

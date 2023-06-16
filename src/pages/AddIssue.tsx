@@ -1,5 +1,3 @@
-import React, { useEffect } from "react";
-import { useLocation } from "react-router-dom";
 import Navbar from "../component/Navbar";
 import Footer from "../component/Footer";
 import AddIssueContent from "../component/AddIssueContent";

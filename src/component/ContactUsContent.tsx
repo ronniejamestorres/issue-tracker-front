@@ -1,10 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
 import contactusimage from "../images/contactusimage.svg";
 
 const ContactUsContent: React.FC = () => {
-  const navigate = useNavigate();
-
   return (
     <div className="h-screen bg-white pt-28 lg:pt-10 p-4 grid grid-cols-1 lg:grid-cols-2 ">
       <div className=" border pt-8 lg:pt-40">
